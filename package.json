@@ -4,7 +4,8 @@
   "description": "to be used as template for node projects related to cst336",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.mjs"
   },
   "keywords": [],
   "author": "",
