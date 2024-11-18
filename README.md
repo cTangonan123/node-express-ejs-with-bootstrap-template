@@ -61,7 +61,7 @@ project
     "watch-css": "sass --watch public/css/styles.scss public/css/styles.css"
   }
 ```
-- now in a terminal window you can implement `build-css` command via `npm run`, this will build the bootstrap css file and place it where you designated your stylesheet will go
+- now in a terminal window you can implement `build-css` command via `npm run`, this will build the bootstrap css file and place it where your designated stylesheet will go
 ```bash
 $ npm run build-css
 ```
