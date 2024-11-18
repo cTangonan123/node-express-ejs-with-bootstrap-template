@@ -1,5 +1,7 @@
 # node-express-ejs-with-bootstrap-template
-## if copying repo as template
+was difficult finding clear instructions on how to initialize bootstrap as an npm package in accordance with our current classes pre-defined build structure (Node, Express, and EJS as it's view engine).
+
+## if using as a template
 just run `npm install` and should run out the box
 - note: `nodemon` must be installed prior, can be done globally or locally
 
