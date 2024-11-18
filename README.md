@@ -1,5 +1,5 @@
 # node-express-ejs-with-bootstrap-template
-was difficult finding clear instructions on how to initialize bootstrap as an npm package in accordance with our current classes pre-defined build structure (Node, Express, and EJS as it's view engine).
+Reason for making was it was difficult finding clear instructions on how to initialize bootstrap as an npm package in accordance with our current courses pre-defined build structure (Node, Express, and EJS as it's view engine). Opted to build it once then, pull from it for each project using this structure in the future.
 
 ## if using as a template
 just run `npm install` and should run out the box
