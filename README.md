@@ -65,7 +65,7 @@ project
 ```bash
 $ npm run build-css
 ```
-- 
+
 
 - in your `index.mjs` file include the imports:
 ```js
@@ -147,7 +147,11 @@ app.listen(3000, () => {
   <script src="./js/bootstrap.bundle.min.js"></script>
 </head>
 ```
-- in a new terminal you can run you server with:
+- enter in terminal, the `watch-css` command, which will watch for any changes to the `styles.scss` and automatically build/update the `styles.css` file
+```bash
+npm run watch-css
+```
+- finally in a new terminal you can run you server with:
 ```bash
 $ npm run server
 ```
