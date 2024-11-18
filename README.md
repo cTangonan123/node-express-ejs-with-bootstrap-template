@@ -20,7 +20,10 @@ $ npm i express ejs
 ```bash
 $ npm i bootstrap@v5.3.3 # latest version currently
 ```
-
+- install sass either as dev dependent package or globally
+```bash
+$ npm install sass --save-dev
+```
 - set up file structure
 ```bash
 project
@@ -40,6 +43,29 @@ project
 	* index.mjs      # initial app
 	
 ```
+- create a `styles.scss` file
+  - dependent of file structure, this file is located in the folder designated for styling...in this instance, it would be the `/css` folder in our `public` folder, create the file, and insert in this snippet:
+  - note: this file is designated for any sass related variable changes, and must be instantiated above the import line.
+```scss
+// example variable change
+// $primary: red; // uncomment to see variable changes
+
+// custom scss goes above this line, such as variable or map changes etc...
+@import "../../node_modules/bootstrap/scss/bootstrap.scss"
+```
+- in your `package.json` file you can shorthand some commands that will be used regularly, in the scripts key, enter in these three key value pairs.
+```js
+  "scripts": {
+    "server": "nodemon index.mjs"
+    "build-css": "sass public/css/styles.scss public/css/styles.css"
+    "watch-css": "sass --watch public/css/styles.scss public/css/styles.css"
+  }
+```
+- now in a terminal window you can implement `build-css` command via `npm run`, this will build the bootstrap css file and place it where you designated your stylesheet will go
+```bash
+$ npm run build-css
+```
+- 
 
 - in your `index.mjs` file include the imports:
 ```js
@@ -57,8 +83,7 @@ const __dirname = path.dirname(__filename);
 ```js
 // use static file instances
 app.use(express.static("public"));
-// for bootstrap both css and js, also include paths in partials of head
-app.use('/css', express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")))
+// for bootstrap js, also include paths in partials of head
 app.use('/js', express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")))
 ```
 
@@ -95,14 +120,10 @@ app.set("view engine", "ejs");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// console.log(`__filename: ${__filename}`); // used to debug
-// console.log(`__dirname: ${__dirname}`);   // used to debug
-
 // set static folder
 app.use(express.static("public"));
 
-// set static for bootstraps css and js folders
-app.use('/css', express.static(path.join(__dirname, "node_modules/bootstrap/dist/css")));
+// set static for bootstraps js folders
 app.use('/js', express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
 
 app.get('/', (req, res) => {
@@ -120,10 +141,13 @@ app.listen(3000, () => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <!-- custom styling sheet -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/styles.css">
 
   <!-- bootstrap related content -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
   <script src="./js/bootstrap.bundle.min.js"></script>
 </head>
+```
+- in a new terminal you can run you server with:
+```bash
+$ npm run server
 ```

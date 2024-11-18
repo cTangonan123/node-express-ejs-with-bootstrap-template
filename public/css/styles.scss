@@ -1,0 +1,6 @@
+// example variable change, refer to https://getbootstrap.com/docs/5.3/customize/overview/
+$primary: red;
+$secondary: green;
+
+// custom scss goes above this line, such as variable changes etc...
+@import "../../node_modules/bootstrap/scss/bootstrap.scss"
